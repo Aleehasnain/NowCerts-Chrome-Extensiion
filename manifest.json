@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "NC Autofill",
+  "description": "The NC Autofill extension is an automatic web form filler that supports multiple profiles.",
+  "version": "1.0",
+  "icons": {
+    "16": "assets/svgs/Logo.png",
+    "48": "assets/svgs/Logo.png",
+    "128": "assets/svgs/Logo.png"
+  },
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["*://*.google.com/", "tabs", "activeTab", "scripting", "storage","management", "*://*.yahoo.com/"],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+
+}

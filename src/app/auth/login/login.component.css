@@ -1,0 +1,154 @@
+section {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    grid-template-areas: "loginForm landingImg";
+    align-items: flex-end;
+  }
+  article {
+    grid-area: loginForm;
+  }
+  article svg {
+    display: none;
+  }
+  .landingImg {
+    grid-area: landingImg;
+  }
+  .landingImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.8em;
+    align-items: center;
+    width: min(30em, 100%);
+  }
+  ::ng-deep .mat-raised-button {
+    padding: 5px 16px;
+  }
+/* Using /deep/ combinator */
+ .mat-mdc-form-field-flex {
+  align-items: center !important;
+}
+
+.mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+  align-items: center !important;
+  flex:  none;
+  padding-bottom: 0rem !important;
+}
+.mat-form-field-appearance-fill .mat-mdc-text-field-wrapper {
+  align-items: center !important;
+  flex:  none;
+  padding-bottom: 1rem;
+}
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  color: #ff5252; /* Error color */
+}
+
+
+.error-message {
+  font-weight: bold;
+}
+.logo-set{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.my-heading {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  color: #000000;
+  margin: 6pt 0 14pt 0pt;
+}
+
+
+
+.button-login {
+  background-color: #2dabc1;
+  border-color: #2aa0b5;
+  border-style: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  height: 45px;
+  margin-top: 6pt;
+  margin-bottom: 6pt;
+
+}
+
+
+  @media screen and (max-width: 768px) {
+    section {
+      grid-template-columns: 1fr;
+    }
+    .landingImg {
+      display: none;
+    }
+    article svg {
+      display: block;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .landingImg {
+      display: none;
+    }
+    a {
+      text-align: center;
+    }
+  }
+
+
+
+  .loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3; /* Light gray */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    animation: spin 1s linear infinite !important;
+  }
+
+  .loader-text {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+

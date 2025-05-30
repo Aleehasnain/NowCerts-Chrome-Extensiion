@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  /* font-family: 'Open Sans', sans-serif !important; */
+}
+html,
+body {
+  width: 355px !important;
+  height: 560px !important;
+
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif !important ;
+}
+
+.footer-set {
+  background: #cec8c8;
+  padding: 12px;
+  width: 250px;
+  text-align: center;
+}
+
+mat-sidenav.mat-drawer.mat-sidenav.h-full.w-72.overflow-y-scroll.py-3.px-6.ng-tns-c73-3.ng-trigger.ng-trigger-transform.mat-drawer-over.mat-sidenav-fixed.ng-star-inserted {
+  visibility: hidden;
+}
+
+:root {
+  --primary-color: #1a548a;
+  --secondary-color: #4d8ad9;
+  --error-color: #d55656;
+  --success-color: #58cd80;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 7.5px;
+  height: 7.5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4d8ad952;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4d8ad952;
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+input:focus {
+  border: 1px solid #4693da;
+}
+
+.router-link-active {
+  background-color: #1a548a;
+  color: white;
+}
+
+.error-snackbar {
+  background-color: var(--error-color);
+  color: #ffffff;
+}
+.error-snackbar .mat-simple-snackbar-action {
+  color: #ffffff;
+}
+
+.success-snackbar {
+  background-color: var(--success-color);
+  color: #ffffff;
+}
+.success-snackbar .mat-simple-snackbar-action {
+  color: #ffffff;
+}
+
+.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field
+  .mdc-notched-outline__notch {
+  border-right-style: hidden;
+}
+
+mat-sidenav.mat-drawer.mat-sidenav.h-full.w-72.overflow-y-scroll.py-3.px-6.ng-tns-c144-0.ng-trigger.ng-trigger-transform.ng-star-inserted.mat-drawer-side.mat-drawer-opened {
+  display: none !important;
+}
+
+.mat-drawer-inner-container.ng-tns-c144-4 {
+  display: none;
+}
+
+mat-sidenav.mat-drawer.mat-sidenav.h-full.w-72.overflow-y-scroll.py-3.px-6.ng-tns-c144-4.ng-trigger.ng-trigger-transform.ng-star-inserted.mat-drawer-side.mat-drawer-opened {
+  display: none;
+}
+.mat-icon {
+  margin-right: 12px !important;
+}

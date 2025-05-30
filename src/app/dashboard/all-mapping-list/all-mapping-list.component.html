@@ -1,0 +1,108 @@
+<ng-container *ngIf="!isLoaderShow && !apiError && globalCheck">
+
+  <h1 class="heading">Select Field</h1>
+  <div class="divborder">
+    <div class="search-container">
+      <img class="search-icon" src="./assets/svgs/2.png" alt="Search Icon" />
+      <input type="text" class="search-bar" [(ngModel)]="searchKeyword" placeholder="Search" />
+      <img class="delete-icon" [hidden]="isClearShow" src="./assets/svgs/clear1.svg" />
+    </div>
+    <div></div>
+  </div>
+  <div style="height: 250px; overflow: auto">
+    <h1 class="heading">All Fields</h1>
+    <ul class="rectangle-bar">
+     
+      <ng-container *ngFor="let item of filteredInsuredList | filter : searchKeyword">
+        <ng-container *ngIf="item.isMapped">
+          <li>
+            <div class="Main" style="display: flex; justify-content: space-between">
+              <label [for]="'insured-' + item.name">{{ item.name }}</label>
+              <div style="display: flex; margin-right: 10px">
+                <button class="edit" (click)="editScreen(item.inputKey, item.inputType)" style="
+                    background: white;
+                    color: blue;
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    cursor: pointer;
+                  ">
+                  Edit
+                </button>
+
+                <ng-container *ngIf="item.ableToUnmap;else reset">
+                  <label style="padding: 0 !important">|</label>
+                  <button class="unmap" style="
+                  background: white;
+                  color: #ff1a1a;
+                  font-size: 13px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+                  cursor: pointer;
+                " (click)="handleSelection(item.inputKey, 'insured'); removeReference(item.inputKey)">
+                    Unmap
+                  </button>
+                </ng-container>
+                <ng-template #reset>
+                  <ng-container>
+                    <label style="padding: 0 !important">|</label>
+                    <button class="unmap" style="
+                    background: white;
+                    color: #dfd846;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    cursor: pointer;
+                  " (click)="handleSelection(item.inputKey, 'insured'); resetData(item.inputKey)">
+                      Reset
+                    </button>
+                  </ng-container>
+                </ng-template>
+
+              </div>
+            </div>
+          </li>
+        </ng-container>
+      </ng-container>
+
+    </ul>
+  </div>
+
+</ng-container>
+
+
+<ng-container *ngIf="!globalCheck && !isLoaderShow">
+  <div class="error-container">
+    <div class="error-icon">
+      <span>&#9888;</span>
+    </div>
+    <div class="error-message">  No mapping found. Click on any field to start mapping.</div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isLoaderShow && !apiError && !isSuccess">
+  <div class="loader-container">
+    <div class="loader"></div>
+    <div class="loader-text">Please wait ...</div>
+  </div>
+</ng-container>
+<ng-container *ngIf="apiError && !isSuccess">
+  <div class="error-container">
+    <div class="error-icon">
+      <span>&#9888;</span>
+    </div>
+    <div class="error-message">{{ apiErrorMessage }}</div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isSuccess && !apiError">
+  <div class="blur-overlay">
+    <div class="success-container">
+      <div class="tick-icon">&#10003;</div>
+      <div class="success-message">{{ successMessage }}</div>
+    </div>
+  </div>
+</ng-container>

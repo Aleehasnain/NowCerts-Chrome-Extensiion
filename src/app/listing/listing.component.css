@@ -1,0 +1,347 @@
+.logo {
+  margin: 10pt 0pt 10pt 8pt;
+  width: 100px;
+}
+
+.divborder {
+  border: 0.810651pt solid #CDD1DC;
+  border-radius: 4.05325pt;
+  margin-left: 14pt;
+}
+
+.heading {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+  margin: 6pt 0pt 4pt 8pt;
+}
+.error{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: red;
+  margin: 6pt 0pt 4pt 8pt;
+}
+
+.buttonsclass {
+  display: flex;
+  justify-content: flex-end;
+  margin: 6pt 0pt 6pt 0pt;
+}
+
+.unmapbutton {
+  background: #D11A2A;
+  border-radius: 3px;
+  width: 57.5px;
+  height: 32px;
+  left: 420px;
+  top: 241px;
+  margin: 0pt 4pt 0pt 0pt;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.mapbutton {
+  width: 57.5px;
+  height: 32px;
+  left: 482px;
+  top: 241px;
+  color: #FFFFFF;
+  background: #2DABC1;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 11px;
+  text-align: center;
+}
+
+.dataitems {
+  background: #2DABC1;
+  border-radius: 2.43195px;
+  margin: 6pt 8pt;
+  height: 22pt;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding-left: 25px; /* Updated: Increased padding for the dropdown icon */
+  border: 0.810651px solid #E9EAEE;
+  width: 90%;
+  position: relative;
+    appearance: none;
+}
+.dataitems option {
+  font-size: 9pt;
+  background-color: #ffffff;
+  color: #000000;
+}
+.select-icon {
+  position: absolute;
+  left: 8px; /* Updated: Changed from right to left */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.unselect{
+  border: 0.810651px solid #E9EAEE;
+}
+
+.select{
+  border: 0.810651px solid #2DABC1;
+}
+
+.addScroll {
+  height: calc(100% - 30pt);
+  /* Set the desired height of the scrollable area */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+}
+/* Existing CSS styles */
+
+.search-bar {
+  background: #FFFFFF;
+  border-radius: 2.43195px;
+  margin: 6pt 8pt;
+  height: 22pt;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  padding-left: 6pt;
+  border: 0.810651px solid #E9EAEE;
+  width: 90%;
+  position: relative;
+  /* Add the following properties */
+  padding-left: 30px;
+}
+/* Existing CSS styles */
+
+.search-icon {
+  margin-left: 12pt;
+    padding-top: 2pt;
+    position: absolute;
+    /* top: 71pt; */
+    height: 13pt;
+    z-index: 9;
+}
+
+.dropdown-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.select-icon {
+  width: 12pt;
+  position: absolute;
+  left: 8px;
+  z-index: 9;
+  margin-left: 6pt;
+  filter: invert(1);
+}
+.delete-icon{
+  width: 12pt;
+  right: 33px;
+  z-index: 9;
+  position: relative;
+   /* margin-right: 38pt; */
+
+}
+.no-data-message {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.unmapbutton[disabled] {
+  /* Add your disabled button styles here */
+  /* For example, you can change the background color and text color */
+  background-color: #eaeaea;
+  color: #999 !important;
+  cursor: not-allowed;
+}
+
+
+
+
+.rectangle-bar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.rectangle-bar li {
+  margin-left: 9pt;
+  margin-right: 17pt;
+  border: 1px solid #ccc;
+  padding: 4px 1px;
+  cursor: pointer;
+  border-radius: 2.43195px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  border: 0.810651px solid #E9EAEE;
+}
+.rectangle-bar li input[type="radio"] {
+  display: none;
+}
+
+.rectangle-bar li label {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.rectangle-bar li label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 11px;
+  height: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.rectangle-bar li label:after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 4px;
+  height: 8px;
+  border: solid green;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.rectangle-bar li input[type="radio"]:checked + label:after {
+  display: block;
+}
+
+.rectangle-bar li:hover {
+  background-color: #e6e6e6;
+}
+.rectangle-bar li.selected {
+  display: flex;
+  background-color: #e6e6e6;
+}
+
+.clear-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.clear-button:focus {
+  outline: none;
+}
+
+
+
+.search-container {
+  display: flex;
+    align-items: center;
+}
+
+
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3; /* Light gray */
+  border-top: 5px solid #3498db; /* Blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  color: #ff5252; /* Error color */
+}
+
+.error-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  font-weight: bold;
+}
+
+
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-container {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+}
+
+.tick-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.success-message {
+  font-size: 16px;
+}

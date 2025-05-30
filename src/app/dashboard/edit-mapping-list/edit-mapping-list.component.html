@@ -1,0 +1,209 @@
+<div>
+  <div style="
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    ">
+    <h1 class="heading">{{titleToEdit}}</h1>
+    <button (click)="goBack()" class="save" style="
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        font-family: Arial;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 4px;
+        padding: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background: #2dabc1;
+      ">
+      Back
+    </button>
+  </div>
+</div>
+<ng-container *ngIf="!isLoaderShow && !apiError">
+  <div class="divborder">
+    <div class="search-container">
+      <img class="search-icon" src="./assets/svgs/2.png" alt="Search Icon" />
+      <input type="text" class="search-bar" [(ngModel)]="searchKeyword" placeholder="Search" (input)="handleSearch()" />
+      <img class="delete-icon" [hidden]="isClearShow" src="./assets/svgs/clear1.svg" (click)="clearSearch()" />
+    </div>
+    <!-- Talha implementation -->
+
+    <div></div>
+  </div>
+  <div class="divborder">
+    <div>
+      <div class="dropdown-container" (click)="toggleDropdown()">
+        <mat-icon class="select-icon text-white" (click)="toggleDropdown(); $event.stopPropagation()">{{
+          isDropdownOpen ? "keyboard_arrow_down" : "keyboard_arrow_right"
+          }}</mat-icon>
+        <h1 class="dataitems">Insured</h1>
+      </div>
+
+      <div [hidden]="isInsured" style="height: 150px; overflow: auto">
+        <ul class="rectangle-bar">
+          <li *ngFor="let item of filteredInsuredList" [class.selected]="item === selectedInsured">
+            <input type="radio" name="insured" [id]="'insured-' + item" [value]="item"
+              (click)="handleSelection($event, 'insured')" [checked]="item === selectedInsured" />
+            <label [for]="'insured-' + item">{{ item }}</label>
+          </li>
+        </ul>
+
+        <ng-container *ngIf="filteredInsuredList.length === 0">
+          <div class="no-data-message">No insured items found</div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div>
+      <div class="dropdown-container" (click)="toggleDropdownTwo()">
+        <mat-icon class="select-icon text-white" (click)="toggleDropdownTwo(); $event.stopPropagation()">{{
+          isDropdownOpenTwo ? "keyboard_arrow_down" : "keyboard_arrow_right"
+          }}</mat-icon>
+        <h1 class="dataitems">Policy</h1>
+      </div>
+
+      <div [hidden]="isPolicy" style="height: 150px; overflow: auto">
+        <ul class="rectangle-bar">
+          <li *ngFor="let item of filteredPolicyList" [class.selected]="item === selectedPolicy">
+            <input type="radio" name="policy" [id]="'policy-' + item" [value]="item"
+              (click)="handleSelection($event, 'policy')" [checked]="item === selectedPolicy" />
+            <label [for]="'policy-' + item">{{ item }}</label>
+          </li>
+        </ul>
+
+        <ng-container *ngIf="filteredPolicyList.length === 0">
+          <div class="no-data-message">No policy items found</div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div>
+      <div class="dropdown-container" (click)="toggleDropdownHeader()">
+        <mat-icon class="select-icon text-white" (click)="toggleDropdownHeader(); $event.stopPropagation()">{{
+          header ? "keyboard_arrow_right" : "keyboard_arrow_down"
+          }}</mat-icon>
+        <h1 class="dataitems">Insured Items</h1>
+      </div>
+      <div [hidden]="isheader" style="margin-left: 1rem">
+        <div>
+          <div class="dropdown-container" (click)="toggleDropdownThree()">
+            <mat-icon class="select-icon text-white" (click)="toggleDropdownThree(); $event.stopPropagation()">{{
+              isDropdownOpenThree
+              ? "keyboard_arrow_down"
+              : "keyboard_arrow_right"
+              }}</mat-icon>
+            <h1 class="dataitems">Vehicles</h1>
+          </div>
+
+          <div [hidden]="isVehicle" style="height: 150px; overflow: auto">
+            <ul class="rectangle-bar">
+              <li *ngFor="let item of filteredVehicleList" [class.selected]="item === selectedVehicle">
+                <input type="radio" name="vehicle" [id]="'vehicle-' + item" [value]="item"
+                  (click)="handleSelection($event, 'vehicle')" [checked]="item === selectedVehicle" />
+                <label [for]="'vehicle-' + item">{{ item }}</label>
+              </li>
+            </ul>
+
+            <ng-container *ngIf="filteredVehicleList.length === 0">
+              <div class="no-data-message">No vehicles found</div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div>
+          <div class="dropdown-container" (click)="toggleDropdownFour()">
+            <mat-icon class="select-icon text-white" (click)="toggleDropdownFour(); $event.stopPropagation()">{{
+              isDropdownOpenFour
+              ? "keyboard_arrow_down"
+              : "keyboard_arrow_right"
+              }}</mat-icon>
+            <h1 class="dataitems">Drivers</h1>
+          </div>
+
+          <div [hidden]="isDriver" style="height: 150px; overflow: auto">
+            <ul class="rectangle-bar">
+              <li *ngFor="let item of filteredDriverList" [class.selected]="item === selectedDriver">
+                <input type="radio" name="driver" [id]="'driver-' + item" [value]="item"
+                  (click)="handleSelection($event, 'driver')" [checked]="item === selectedDriver" />
+                <label [for]="'driver-' + item">{{ item }}</label>
+              </li>
+            </ul>
+
+            <ng-container *ngIf="filteredDriverList.length === 0">
+              <div class="no-data-message">No drivers found</div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="error" *ngIf="isShown">Please select a field</h1>
+    <!-- Close -->
+
+  </div>
+
+
+
+  <!-- <div style="height: 250px; overflow: auto">
+  <ul class="rectangle-bar" style="padding-left: 5px">
+    <li style="font-weight: bolder">Select field to map</li>
+    <li style="display: flex; align-items: center" *ngFor="let item of filteredInsuredList | filter : searchKeyword"
+      [class.selected]="item.name == selectedInsured">
+      <input type="radio" name="insured" [id]="'insured-' + item.name" [value]="item.name"
+        (click)="handleSelection($event, 'insured')" [checked]="item.name === selectedInsured" />
+      <label>{{ item.name }}</label>
+    </li>
+  </ul>
+</div> -->
+  <button class="save" style="
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-family: Arial;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+    background: #2dabc1;
+    float: right;
+    margin-bottom: 30px;
+  " (click)="saveReference()">
+    Save
+  </button>
+</ng-container>
+<!-- copied -->
+
+<ng-container *ngIf="isLoaderShow && !apiError && !isSuccess">
+  <div class="loader-container">
+    <div class="loader"></div>
+    <div class="loader-text">Please wait ...</div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="apiError && !isSuccess">
+  <div class="error-container">
+    <div class="error-icon">
+      <span>&#9888;</span>
+    </div>
+    <div class="error-message">{{ apiErrorMessage }}</div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isSuccess && !apiError">
+  <div class="blur-overlay">
+    <div class="success-container">
+      <div class="tick-icon">&#10003;</div>
+      <div class="success-message">{{ successMessage }}</div>
+    </div>
+  </div>
+</ng-container>

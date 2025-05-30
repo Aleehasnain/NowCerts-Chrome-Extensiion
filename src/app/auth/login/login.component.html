@@ -1,0 +1,104 @@
+<ng-container>
+  <section>
+    <article>
+      <div class="logo-set">
+        <img
+          style="margin: 15pt; width: 150px"
+          src="./assets/svgs/logo.jfif"
+          alt=" Logo"
+        />
+        <!-- <h1 class="my-heading">
+          Login
+        </h1> -->
+      </div>
+
+      <form [formGroup]="loginForm" class="w-full">
+        <mat-form-field style="height: 70px; width: 70%" appearance="fill">
+          <!-- <mat-label>Enter Email</mat-label> -->
+          <input
+            matInput
+            type="email"
+            placeholder="Enter Email"
+            formControlName="email"
+            [errorStateMatcher]="matcher"
+            id="username"
+          />
+          <mat-error
+            style="color: red"
+            *ngIf="loginForm.controls.email.errors?.['required']"
+          >
+            Email is required.
+          </mat-error>
+          <mat-error
+            style="color: red"
+            *ngIf="loginForm.controls.email.errors?.['email']"
+          >
+            Invalid email address.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="height: 70px; width: 70%">
+          <!-- <mat-label>Enter your password</mat-label> -->
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="Enter Password"
+            id="password"
+          />
+          <div
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </div>
+          <mat-error
+            style="color: red"
+            *ngIf="loginForm.controls.password.errors?.['minlength']"
+          >
+            Password is less than 3 characters.
+          </mat-error>
+          <mat-error
+            style="color: red"
+            *ngIf="loginForm.controls.password.errors?.['required']"
+          >
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+        <button class="button-login" (click)="onSubmit()">Login</button>
+
+        <ng-container *ngIf="apiError">
+          <div class="error-container">
+            <div class="error-message">{{ apiErrorMessage }}</div>
+          </div>
+        </ng-container>
+      </form>
+    </article>
+  </section>
+  <div
+    style="
+      background: #cfc8c8;
+      text-align: center;
+      height: fit-content;
+      position: fixed;
+      margin: 0pt 0pt 8pt 0pt;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    "
+  >
+    <h4 style="margin: 0">NowCerts LLC 2023</h4>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isLoaderShow">
+  <div class="blur-overlay">
+    <div class="loader-container">
+      <div class="loader"></div>
+      <div class="loader-text">Please wait ...</div>
+    </div>
+  </div>
+</ng-container>

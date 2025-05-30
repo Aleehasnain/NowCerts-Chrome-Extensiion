@@ -1,0 +1,93 @@
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+}
+.content > *:nth-child(1) {
+  height: fit-content;
+}
+.content > *:nth-child(2) {
+  height: fit-content;
+}
+.content > *:nth-child(3) {
+  height: 100%;
+  width: 100%;
+  /* overflow: scroll; */
+}
+.icon.auto {
+  width: min(15em, 100%);
+  height: min(2.5em, 100%);
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+
+::ng-deep
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+}
+
+.sidebar_height {
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+header.h-12 {
+  height: 2.58rem;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+@media screen and (max-width: 1023px) {
+  mat-sidenav{
+    /* background: #fff; */
+  }
+}
+/* Fixed sidenav, full height */
+
+/* Style the sidenav links and the dropdown button */
+
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  padding: 0.5rem;
+}
+
+.dataitems {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.iconClass{
+  color: #fff !important;
+  margin-right: 2px !important;
+  margin-top: -1pt !important;
+  cursor: pointer;
+}

@@ -1,0 +1,109 @@
+<div>
+    <div style="
+        padding-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+      <h1 class="heading">Mapping Requests</h1>
+      <button (click)="goBack()" class="save" style="
+          display: flex;
+          justify-content: center;
+          color: #fff;
+          font-family: Arial;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          border-radius: 4px;
+          padding: 10px;
+          margin-top: 10px;
+          margin-right: 10px;
+          background: #2dabc1;
+        ">
+        Back
+      </button>
+    </div>
+  </div>
+<ng-container *ngIf="!isLoaderShow && !apiError">
+
+    <div style="height: 250px; overflow: auto">
+      <ul class="rectangle-bar">
+       
+        <ng-container *ngFor="let item of totalRequests | filter : searchKeyword">
+          <ng-container>
+            <li>
+              <div class="Main" style="display: flex; justify-content: space-between">
+                <label [for]="'insured-' + item.name" (click)="viewMappings(item, 'requests')">{{ item?.domain }}</label>
+                <div style="display: flex; margin-right: 10px">
+                  <button class="edit" (click)="updateDataFromServer(item?.id, 'approved')" style="
+                      background: white;
+                      color: green;
+                      font-size: 13px;
+                      font-style: normal;
+                      font-weight: 400;
+                      line-height: normal;
+                      cursor: pointer;
+                    ">
+                    Approve
+                  </button>
+  
+                  <ng-container >
+                    <label style="padding: 0 !important">|</label>
+                    <button class="unmap" style="
+                    background: white;
+                    color: #ff1a1a;
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    cursor: pointer;
+                  " (click)="updateDataFromServer(item?.id, 'rejected')">
+                      Reject
+                    </button>
+                  </ng-container>
+  
+                </div>
+              </div>
+            </li>
+          </ng-container>
+        </ng-container>
+  
+      </ul>
+    </div>
+  
+  </ng-container>
+  
+  
+  <ng-container *ngIf="!globalCheck && !isLoaderShow && !totalRequests.length">
+    <div class="error-container">
+      <div class="error-icon">
+        <span>&#9888;</span>
+      </div>
+      <div class="error-message">  No Requests found.</div>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="isLoaderShow && !apiError && !isSuccess">
+    <div class="loader-container">
+      <div class="loader"></div>
+      <div class="loader-text">Please wait ...</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="apiError && !isSuccess">
+    <div class="error-container">
+      <div class="error-icon">
+        <span>&#9888;</span>
+      </div>
+      <div class="error-message">{{ apiErrorMessage }}</div>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="isSuccess && !apiError">
+    <div class="blur-overlay">
+      <div class="success-container">
+        <div class="tick-icon">&#10003;</div>
+        <div class="success-message">{{ successMessage }}</div>
+      </div>
+    </div>
+  </ng-container>

@@ -1,0 +1,251 @@
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3; /* Light gray */
+  border-top: 5px solid #3498db; /* Blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  margin-left: 12pt;
+  padding-top: 2pt;
+  /* position: absolute; */
+  /* top: 71pt; */
+  height: 13pt;
+  z-index: 9;
+}
+.search-bar {
+  background: #ffffff;
+  border-radius: 2.43195px;
+  margin: 6pt 8pt;
+  height: 22pt;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  padding-left: 6pt;
+  border: 0.810651px solid #e9eaee;
+  width: 90%;
+  position: relative;
+  /* Add the following properties */
+  /* padding-left: 30px; */
+}
+.no-data-message {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.delete-icon {
+  width: 12pt;
+  right: 23px;
+  z-index: 9;
+  position: relative;
+  /* margin-right: 38pt; */
+}
+.button-login {
+  background-color: #2dabc1;
+  border-color: #2aa0b5;
+  border-style: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  height: 35px !important;
+  margin-top: 6pt;
+  margin-bottom: 6pt;
+}
+.button-login[disabled] {
+  /* Add your disabled button styles here */
+  /* For example, you can change the background color and text color */
+  background-color: #eaeaea;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.divborder {
+  border: 0.810651pt solid #cdd1dc;
+  border-radius: 4.05325pt;
+  margin-left: 14pt;
+  margin-right: 14pt;
+  padding-bottom: 6px;
+  height: 300pt;
+  overflow: auto;
+}
+.dropdown-container {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.select-icon {
+  position: absolute;
+  left: 8px; /* Updated: Changed from right to left */
+  top: 50%;
+  transform: translateY(-50%);
+}
+.select-icon {
+  width: 20pt;
+  position: absolute;
+  left: 8px;
+  z-index: 9;
+  margin-left: 6pt;
+  filter: invert(1);
+}
+.dataitems {
+  background: #2dabc1;
+  border-radius: 2.43195px;
+  margin: 6pt 8pt;
+  height: 22pt;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding-left: 25px; /* Updated: Increased padding for the dropdown icon */
+  border: 0.810651px solid #e9eaee;
+  width: 90%;
+  position: relative;
+  appearance: none;
+}
+.dataitems option {
+  font-size: 9pt;
+  background-color: #ffffff;
+  color: #000000;
+}
+.rectangle-bar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rectangle-bar li {
+  margin-left: 9pt;
+  margin-right: 17pt;
+  border: 1px solid #ccc;
+  padding: 4px 1px;
+  cursor: pointer;
+  border-radius: 2.43195px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  border: 0.810651px solid #e9eaee;
+}
+.rectangle-bar li input[type="radio"] {
+  display: none;
+}
+
+.rectangle-bar li label {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.rectangle-bar li label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 11px;
+  height: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.rectangle-bar li label:after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 4px;
+  height: 8px;
+  border: solid green;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.rectangle-bar li input[type="radio"]:checked + label:after {
+  display: block;
+}
+
+.rectangle-bar li:hover {
+  background-color: #e6e6e6;
+}
+.rectangle-bar li.selected {
+  background-color: #e6e6e6;
+}
+.error {
+  display: flex;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: red;
+  justify-content: center;
+}
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  color: #ff5252; /* Error color */
+}
+
+.error-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  font-weight: bold;
+}

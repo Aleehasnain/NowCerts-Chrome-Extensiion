@@ -1,0 +1,35 @@
+::ng-deep .mat-raised-button,
+::ng-deep .mat-raised-button:not([class*="mat-elevation-z"]),
+::ng-deep .mat-flat-button.mat-primary,
+::ng-deep .mat-raised-button.mat-primary,
+::ng-deep .mat-fab.mat-primary,
+::ng-deep .mat-mini-fab.mat-primary {
+  border-radius: 10em;
+  padding: 0 1em;
+  height: 2.5rem;
+}
+.demo-inline-calendar-card {
+  width: 300px;
+}
+
+::ng-deep .mat-success {
+  background-color: var(--success-color);
+  color: #fff;
+}
+::ng-deep .mat-mdc-text-field-wrapper{
+  flex: none;
+  padding-bottom: 1rem;
+}
+
+
+::ng-deep .mat-raised-button.mat-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 0.15rem solid var(--primary-color);
+  font-weight: 600;
+}
+
+::ng-deep input {
+  outline: none !important;
+  border: none !important;
+}

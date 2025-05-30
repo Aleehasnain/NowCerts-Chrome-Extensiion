@@ -1,0 +1,70 @@
+<ng-container *ngIf="policyData?.field_mapping && !isFieldsMappingEmpty && !isLoaderShow">
+  <div style="margin-top: 40pt;">
+    <div id="toggleContainer">
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="autofillEnabled" (change)="toggleAutofill()">
+        <span class="slider round"></span>
+      </label>
+      <span class="toggle-label">{{ autofillEnabled ? 'Enabled' : 'Disabled' }}</span>
+    </div>
+    <div style="    display: flex;
+    align-items: center;
+    flex-direction: column;">
+      <p class="show-Text">
+        Autofill has detected that
+      </p>
+      <p class="show-Text">
+        this page has a mapping click start to
+        pre-filling.
+      </p>
+    </div>  
+    <div>
+      <p style="text-align: center">
+        <button class="button-login" routerLink="/dashboard/list" id="fillForm" (click)="onClick($event)">
+          Start
+        </button>
+
+      </p>
+    </div>
+
+
+  </div>
+</ng-container>
+<!-- <button class="button-login"  id="enableDisableForm" (click)="enableDisableAutoFill()">
+  Enable auto fill
+</button> -->
+<ng-container *ngIf="(!policyData?.field_mapping || isFieldsMappingEmpty) && !isLoaderShow">
+  <div class="error-container">
+    <div class="error-icon">
+      <span>&#9888;</span>
+    </div>
+    <div class="error-message"> Autofill has detected that this page doesn't have a mapping.
+      <span *ngIf="loggedData?.role == 'staff'">
+        Please contact your administrator or NowCerts support team at
+        <a href="https://support.nowcerts.com/en/support/home" target="_blank">support@nowcerts.net</a>
+        to request it.
+      </span>
+    </div>
+
+    <div class="show-Text" *ngIf="!ableToMapping && (loggedData?.role == 'admin' || loggedData?.role == 'super_admin')">
+      This site is not whiteListed.
+      <div>
+        <p style="text-align: center">
+          <button class="button-login" id="fillForm" (click)="makeWhiteList()">
+            Make it now
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+</ng-container>
+<ng-container *ngIf="isLoaderShow">
+  <div class="blur-overlay">
+    <div class="loader-container">
+      <div class="loader"></div>
+      <div class="loader-text">Please wait ...</div>
+    </div>
+  </div>
+</ng-container>

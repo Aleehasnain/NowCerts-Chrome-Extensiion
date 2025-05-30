@@ -1,0 +1,273 @@
+<section
+  style="
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  "
+>
+  <div style="justify-self: end !important">
+    <button mat-raised-button routerLink="/dashboard/mapping">Back</button>
+  </div>
+  <form [formGroup]="addNewForm" class="add gap-3" style="text-align: center">
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="firstName"
+        matInput
+        formControlName="firstName"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter First Name"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.firstName.errors?.['minlength']">
+        firstName is <strong>less than 4 characters</strong>.
+      </mat-error>
+      <mat-error *ngIf="addNewForm.controls.firstName.errors?.['maxlength']">
+        firstName <strong>cannot be more than 8 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.firstName.errors?.['required']">
+        firstName is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.firstName.errors?.['pattern']">
+        firstName can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="lastName"
+        matInput
+        formControlName="lastName"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter Last Name"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.lastName.errors?.['minlength']">
+        lastName is <strong>less than 4 characters</strong>.
+      </mat-error>
+      <mat-error *ngIf="addNewForm.controls.lastName.errors?.['maxlength']">
+        lastName <strong>cannot be more than 7 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.lastName.errors?.['required']">
+        lastName is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.lastName.errors?.['pattern']">
+        lastName can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="title"
+        matInput
+        formControlName="title"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter User Name"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.title.errors?.['minlength']">
+        title is <strong>less than 4 characters</strong>.
+      </mat-error>
+      <mat-error *ngIf="addNewForm.controls.title.errors?.['maxlength']">
+        title <strong>cannot be more than 7 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.title.errors?.['required']">
+        title is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.title.errors?.['pattern']">
+        title can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter Email"
+      />
+      <mat-error *ngIf="addNewForm.controls.email.errors?.['required']">
+        Email is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.email.errors?.['email']">
+        <strong>Invalid</strong> email address.
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="city"
+        matInput
+        formControlName="city"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter City"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.city.errors?.['minlength']">
+        City is <strong>less than 4 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.city.errors?.['required']">
+        City is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.city.errors?.['pattern']">
+        City can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input
+        type="number"
+        name="phone"
+        matInput
+        formControlName="phone"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter Number"
+      />
+      <!-- <mat-error
+        *ngIf="addNewForm.controls.phone.errors?.['minlength']"
+      >
+        Contact is <strong>less than 4 characters</strong>.
+      </mat-error>
+      <mat-error
+        *ngIf="addNewForm.controls.phone.errors?.['maxlength']"
+      >
+        Contact is <strong>must be 11 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.phone.errors?.['required']">
+        Contact is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error
+        *ngIf="addNewForm.controls.phone.errors?.['pattern']"
+      >
+        Contact can <strong>only</strong> contain <strong>numbers</strong>
+      </mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="state"
+        matInput
+        formControlName="state"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter state"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.state.errors?.['minlength']">
+        state is <strong>less than 4 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.state.errors?.['required']">
+        state is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.state.errors?.['pattern']">
+        state can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="region"
+        matInput
+        formControlName="region"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter region"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.region.errors?.['minlength']">
+        region is <strong>less than 4 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.region.errors?.['required']">
+        region is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.region.errors?.['pattern']">
+        region can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="street"
+        matInput
+        formControlName="street"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter street"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.street.errors?.['minlength']">
+        street is <strong>less than 4 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.street.errors?.['required']">
+        street is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.street.errors?.['pattern']">
+        street can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="zipcode"
+        matInput
+        formControlName="zipcode"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter zipcode"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.zipcode.errors?.['minlength']">
+        zipcode is <strong>less than 4 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.zipcode.errors?.['required']">
+        zipcode is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.zipcode.errors?.['pattern']">
+        zipcode can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="fax"
+        matInput
+        formControlName="fax"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter fax"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.fax.errors?.['minlength']">
+        fax is <strong>less than 4 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.fax.errors?.['required']">
+        fax is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.fax.errors?.['pattern']">
+        fax can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        name="description"
+        matInput
+        formControlName="description"
+        [errorStateMatcher]="matcher"
+        placeholder="Enter description"
+      />
+      <!-- <mat-error *ngIf="addNewForm.controls.description.errors?.['minlength']">
+        description is <strong>less than 4 characters</strong>.
+      </mat-error> -->
+      <mat-error *ngIf="addNewForm.controls.description.errors?.['required']">
+        description is <strong>required</strong>.
+      </mat-error>
+      <!-- <mat-error *ngIf="addNewForm.controls.description.errors?.['pattern']">
+        description can <strong>only</strong> contain <strong>letters</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <div class="btn-container flex gap-6 justify-self-end w-auto">
+      <a
+        mat-raised-button
+        class="w-32"
+        color="secondary"
+        routerLink="/dashboard/mapping"
+        >Cancel</a
+      >
+      <button mat-raised-button class="w-32" (click)="onsubmit()">Save</button>
+    </div>
+  </form>
+</section>
